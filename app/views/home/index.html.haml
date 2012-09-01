@@ -1,7 +1,7 @@
 .menu
   - if user_signed_in?
     = link_to t('buttons.new_complaint')
+    = link_to t('buttons.my_complaints')
   - else
-    = link_to 'Login with facebook', '/auth/facebook', :id => 'facebook_login'
-.span9
+    = link_to 'Login with facebook', '/auth/facebook', :id => 'facebook_login'.span9
   = gmaps4rails(@json)
