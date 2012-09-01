@@ -3,3 +3,5 @@
     = link_to t('buttons.new_complaint')
   - else
     = link_to 'Login with facebook', '/auth/facebook', :id => 'facebook_login'
+.span9
+  = gmaps4rails(@json)

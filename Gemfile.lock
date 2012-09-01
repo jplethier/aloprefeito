@@ -88,6 +88,7 @@ GEM
       rack-oauth2 (>= 0.14.4)
       tzinfo
     ffi (1.1.5)
+    gmaps4rails (1.5.5)
     haml (3.1.7)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -269,6 +270,7 @@ DEPENDENCIES
   coffee-rails
   factory_girl_rails (>= 1.1.beta1)
   fb_graph
+  gmaps4rails
   haml
   haml-rails
   jquery-rails

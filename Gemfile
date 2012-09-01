@@ -18,6 +18,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'paperclip'
 gem 'will_paginate', '~> 3.0.0'
+gem 'gmaps4rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
