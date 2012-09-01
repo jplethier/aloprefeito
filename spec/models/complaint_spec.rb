@@ -10,6 +10,10 @@ describe Complaint do
     it { should belong_to(:user) }
     it { should have_many(:interests) }
     it { should have_many(:attachments) }
+    it { should have_many(:maps) }
+    it { should have_many(:pictures) }
+    it { should have_many(:fonts) }
+    it { should have_many(:embeds) }
   end
 
   describe 'acessibility' do
@@ -24,6 +28,33 @@ describe Complaint do
     it { should validate_presence_of(:description) }
     it { should ensure_inclusion_of(:anonymous).in_array([false, true]) }
     it { should ensure_inclusion_of(:resolved).in_array([false, true]) }
+  end
+
+  describe 'relationships' do
+    describe "maps" do
+      it "should not accept more than one map" do
+        2.times do
+          complaint.maps << FactoryGirl.build(:gmaps_attachment)
+        end
+        complaint.should_not have(0).errors_on :maps
+      end
+      it "should accept a single map" do
+        complaint.maps << FactoryGirl.build(:gmaps_attachment)
+        complaint.should have(0).errors_on :maps
+      end
+    end
+    describe "embed" do
+      it "should not accept more than one embed" do
+        2.times do
+          complaint.maps << FactoryGirl.build(:embed_attachment)
+        end
+        complaint.should_not have(0).errors_on :maps
+      end
+      it "should accept a single map" do
+        complaint.maps << FactoryGirl.build(:embed_attachment)
+        complaint.should have(0).errors_on :maps
+      end
+    end
   end
 
   describe 'callbacks' do

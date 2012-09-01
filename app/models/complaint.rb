@@ -31,17 +31,17 @@ class Complaint < ActiveRecord::Base
 
   def one_map_only
     return if self.maps.blank?
-    errors.add("Too many maps") if self.maps.length > 1
+    self.errors.add(:maps, "Too many maps") if self.maps.length > 1
   end
 
   def one_embed_only
     return if self.maps.blank?
-    errors.add("Too many embeds") if self.embeds.length > 1
+    errors.add(:base, "Too many embeds") if self.embeds.length > 1
   end
 
   def pictures_within_bounds
     return if self.pictures.blank?
-    errors.add("Too many pictures") if self.pictures.length > MAX_PICTURES
+    errors.add(:base, "Too many pictures") if self.pictures.length > MAX_PICTURES
   end
 
 end
