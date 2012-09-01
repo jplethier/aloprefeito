@@ -1,8 +1,8 @@
 .title#complaint
   = "Complaint!"
 .description
-= @complaint.description
-- unless @urls.empty? do
+  = @complaint.description
+- if @urls
   .urls
     = "fontes:"
     .fieldset
