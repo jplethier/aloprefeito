@@ -3,20 +3,13 @@ require 'spec_helper'
 #require File.expand_path("../../../app/controllers/complaints_controller", __FILE__)
 
 describe "New Complaint Page" do
+  include Warden::Test::Helpers
+  Warden.test_mode!
   
   subject { page }
 
   before do
-    # login_as FactoryGirl.create(:broker), :scope => :broker
-    OmniAuth.config.add_mock(:facebook, {
-      :uid => '12345',
-      :nickname => 'zap',
-      :info => {:first_name => 'zap',:last_name => 'nap',:email => 'zapnap@facebook.com'}, 
-      :credentials => {:token => "qualquer_coisa"}
-    })
-    include Warden::Test::Helpers
-    Warden.test_mode!
-    visit "/users/auth/facebook"
+    login_as FactoryGirl.create(:user), :scope => :user
     visit new_complaint_path
   end
 
