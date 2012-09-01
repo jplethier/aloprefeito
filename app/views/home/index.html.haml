@@ -1,4 +1,5 @@
-#home
-  .span9
-    Divulgue e denuncie obras inacabadas, promessas não cumpridas, praças abandonadas, ruas esquecidas ...
-  .span3
+.menu
+  - if user_signed_in?
+    
+  - else
+    = link_to 'Login with facebook', '/auth/facebook', :id => 'facebook_login'
