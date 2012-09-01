@@ -18,14 +18,14 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.info
     if user = User.find_by_email(data.email)
-      user.update_attributes!(:first_name => data.first_name, :access_token => access_token.credentials.token)
+      user.update_attributes!(:first_name => data.first_name, :fb_token => access_token.credentials.token)
       user
     end
   end
 
   def self.apply_omniauth(data)
     user_info = data.info
-    User.new(:email => user_info.email, :first_name => user_info.first_name, :last_name => user_info.last_name, :provider => "facebook", :uid => data.uid, :access_token => data.credentials.token)
+    User.new(:email => user_info.email, :first_name => user_info.first_name, :last_name => user_info.last_name, :provider => "facebook", :uid => data.uid, :fb_token => data.credentials.token)
   end
 
 end
