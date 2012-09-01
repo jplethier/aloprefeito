@@ -16,7 +16,6 @@ test:
   password: 
 
 production:
-  host: db_primary
   adapter: mysql2
   encoding: utf8
   database: denuncias
