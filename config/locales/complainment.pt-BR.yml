@@ -1,4 +1,6 @@
 #coding: UTF-8
 "pt-BR":
   complainment:
+    links: 'Links'
     new: 'Cadastrar Reclamação'
+    no_title: 'Sem título'

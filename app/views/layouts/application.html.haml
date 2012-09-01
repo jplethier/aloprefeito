@@ -32,7 +32,7 @@
       .flash
         - [:notice, :warning, :error].each do |kind|
           = flash[kind]
-      .content
+      .content{ :id => controller_name }
         = yield
     
     #footer

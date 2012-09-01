@@ -1,10 +1,13 @@
-.title#complaint
-  = "Complaint!"
-.description
-  = @complaint.description
-- if @urls
-  .urls
-    = "fontes:"
-    .fieldset
-      - @urls.each do |url_attachment|
-        = url_attachment.url
+.left
+  .title#complaint
+    = @complaint.title || t('complainment.no_title')
+  .description
+    = @complaint.description
+
+.right
+  - if @fonts && !@fonts.empty?
+    .title= t('complaiment.links')
+    %ul.urls
+      - @fonts.each do |font|
+        - if font.url
+          %li= link_to font.url, font.url, :target => '_blank'
