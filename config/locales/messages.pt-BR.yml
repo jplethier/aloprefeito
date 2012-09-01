@@ -1,3 +1,5 @@
 "pt-BR":
   messages:
     success_login: "Login efetuado com sucesso. Olá, #{name}!"
+    failure_complaint_save: "Não foi possível salvar a denúncia."
+    success_complaint_save: "A denúncia foi salva com sucesso"

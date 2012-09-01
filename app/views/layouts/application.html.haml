@@ -29,6 +29,9 @@
             %p= link_to t('header.logout'), logout_path, :class => 'btn btn-link'
           
     #main_body
+      .flash
+        - [:notice, :warning, :error].each do |kind|
+          = flash[kind]
       .content
         = yield
     

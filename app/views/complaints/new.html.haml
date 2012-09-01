@@ -1,1 +1,5 @@
 = t('complainment.new')
+
+= form_for(@complaint) do |f|
+  = f.text_area :description
+  = f.submit I18n.t('buttons.complainment.new')

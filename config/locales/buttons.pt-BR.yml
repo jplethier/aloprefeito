@@ -3,3 +3,5 @@
   buttons:
     my_complaints: 'Minhas denúncias'
     new_complaint: 'Denuncie'
+    complainment:
+      new: 'Salvar Denúncia'
