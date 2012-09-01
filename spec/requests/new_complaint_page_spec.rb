@@ -2,8 +2,6 @@
 require 'spec_helper'
 
 describe "New Complaint Page" do
-  include Warden::Test::Helpers
-  Warden.test_mode!
   
   subject { page }
 
@@ -11,8 +9,6 @@ describe "New Complaint Page" do
     # login_as FactoryGirl.create(:broker), :scope => :broker
     visit new_complaint_path
   end
-
-  after { Warden.test_reset! }
 
   it { should have_content('Novo Usuário') }
   
