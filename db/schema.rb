@@ -10,7 +10,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
-ActiveRecord::Schema.define(:version => 20120901172644) do
+
+ActiveRecord::Schema.define(:version => 20120901181228) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachment_file_name"

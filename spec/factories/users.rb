@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :user do
-    first_name 'Factory'
-    last_name 'User'
-    uid '12'
-    provider 'Facebook'
-    email 'factory@user.com'
+    first_name "Factory"
+    last_name "User"
+    uid "12"
+    provider "Facebook"
+    sequence(:email) { |n| "factory#{n}@user.com" }
   end
 end

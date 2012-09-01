@@ -14,9 +14,13 @@ describe "New Complaint Page" do
       :info => {:first_name => 'zap',:last_name => 'nap',:email => 'zapnap@facebook.com'}, 
       :credentials => {:token => "qualquer_coisa"}
     })
-    visit "/auth/facebook"
+    include Warden::Test::Helpers
+    Warden.test_mode!
+    visit "/users/auth/facebook"
     visit new_complaint_path
   end
+
+  after { Warden.test_reset! }
 
   it { should have_content('Cadastrar Reclamação') }
   

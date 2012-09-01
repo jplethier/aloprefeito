@@ -7,7 +7,6 @@ describe "Show Complaint Page" do
   subject { page }
 
   before do
-    # login_as FactoryGirl.create(:broker), :scope => :broker
     @complaint = FactoryGirl.create :complaint
     visit complaint_path(@complaint)
   end
