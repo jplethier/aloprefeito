@@ -1,7 +1,8 @@
 BondeDaUff::Application.routes.draw do
 
-  match '/auth/:provider/callback', to: 'sessions#create'
-  #match '/auth/failure', to: 'sessions#new'
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"} do
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
 
   root :to => "home#index"
 

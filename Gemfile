@@ -7,6 +7,7 @@ gem 'bourbon'
 gem 'fb_graph'
 gem 'cancan'
 gem 'ckeditor'
+gem 'devise'
 gem 'haml'
 gem "haml-rails"
 gem 'jquery-rails'
