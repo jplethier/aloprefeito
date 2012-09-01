@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120901181228) do
+ActiveRecord::Schema.define(:version => 20120901195251) do
 
   create_table "attachments", :force => true do |t|
     t.string   "attachment_file_name"
@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(:version => 20120901181228) do
     t.date     "attachment_updated_at"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "complaint_id",                              :null => false
-    t.boolean  "gmaps",                   :default => true
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.integer  "complaint_id",            :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "street"
     t.string   "city"
     t.string   "country"
     t.string   "url"
+    t.integer  "type"
   end
 
   create_table "complaints", :force => true do |t|

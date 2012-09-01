@@ -10,6 +10,8 @@ class Attachment < ActiveRecord::Base
 
   scope :mappable, where(:gmaps => true)
 
+  TYPES = {:font => 1, :embed => 2, :map => 3, :picture => 4}
+
   acts_as_gmappable :latitude => 'lat', :longitude => 'lng', :process_geocoding => false
 
   def gmaps4rails_address
