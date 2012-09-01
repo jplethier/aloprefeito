@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :complaint do
-    description 'Descricao'
+    description 'Description'
     resolved false
     anonymous false
     factory :complaint_with_user do
