@@ -23,4 +23,28 @@ describe Complaint do
     it { should ensure_inclusion_of(:anonymous).in_array([false, true]) }
     it { should ensure_inclusion_of(:resolved).in_array([false, true]) }
   end
+
+  describe 'callbacks' do
+    describe "Before saving a Complaint" do
+      it "should automatically create an Interest for the user" do
+        user = FactoryGirl.create(:user)
+        complaint = FactoryGirl.build(:complaint, :user => user)
+        Interest.where(:user_id => user.id).should be_empty
+        complaint.save
+        Interest.where(:user_id => user.id, :complaint_id => complaint.id).should_not be_empty
+      end
+      context "when complaint is anonymous" do
+        it "should set user_id to nil" do
+          complaint = FactoryGirl.build(:complaint_with_user, :anonymous => true)
+          complaint.save
+          complaint.reload.user_id.should be_nil
+        end
+        it "should not set user_id to nil" do
+          complaint = FactoryGirl.build(:complaint_with_user, :anonymous => false)
+          complaint.save
+          complaint.user_id.should_not be_nil
+        end
+      end
+    end
+  end
 end

@@ -5,5 +5,14 @@ class Complaint < ActiveRecord::Base
   validates :resolved,    :inclusion => { in: [true, false] }
   validates :anonymous,   :inclusion => { in: [true, false] }
 
+  before_save :auto_add_interest_to_complainer
+
   belongs_to :user
+  has_many :interests
+
+  def auto_add_interest_to_complainer
+    self.interests.build(:user => self.user)
+    self.user = nil if self.anonymous?
+    true
+  end
 end

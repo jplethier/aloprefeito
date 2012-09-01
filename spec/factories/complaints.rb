@@ -5,5 +5,8 @@ FactoryGirl.define do
     description 'Descricao'
     resolved false
     anonymous false
+    factory :complaint_with_user do
+      user { FactoryGirl.create(:user) }
+    end
   end
 end
