@@ -30,6 +30,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'pry-debugger'
   gem "rspec-rails", "~> 2.6"
+  gem 'capistrano'
 end
 
 group :test do
