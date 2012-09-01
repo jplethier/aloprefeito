@@ -18,10 +18,10 @@ class Complaint < ActiveRecord::Base
   has_many :interests
   has_many :attachments
 
-  has_many :pictures, :class_name => :Attachment, :conditions => {:type => Attachment::TYPES[:picture]}
-  has_many :fonts, :class_name => :Attachment, :conditions => {:type => Attachment::TYPES[:font]}
-  has_many :embeds, :class_name => :Attachment, :conditions => {:type => Attachment::TYPES[:embed]}
-  has_many :maps, :class_name => :Attachment, :conditions => {:type => Attachment::TYPES[:map]}
+  has_many :pictures, :class_name => :Attachment, :conditions => {:attachment_type => Attachment::TYPES[:picture]}
+  has_many :fonts, :class_name => :Attachment, :conditions => {:attachment_type => Attachment::TYPES[:font]}
+  has_many :embeds, :class_name => :Attachment, :conditions => {:attachment_type => Attachment::TYPES[:embed]}
+  has_many :maps, :class_name => :Attachment, :conditions => {:attachment_type => Attachment::TYPES[:map]}
 
   def auto_add_interest_to_user
     self.interests.build(:user => self.user)

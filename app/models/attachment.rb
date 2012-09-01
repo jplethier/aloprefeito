@@ -8,11 +8,11 @@ class Attachment < ActiveRecord::Base
   validates :longitude, :presence => true, :if => :map?
 
   belongs_to :complaint
-  scope :mappable, where(:type => TYPES[:map])
+  scope :mappable, where(:attachment_type => TYPES[:map])
 
 
   def map?
-    self.type == TYPES[:map]
+    self.attachment_type == TYPES[:map]
   end
 
   acts_as_gmappable :latitude => 'lat', :longitude => 'lng', :process_geocoding => false

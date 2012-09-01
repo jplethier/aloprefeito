@@ -1,3 +1,10 @@
+.title#complaint
+  = "Complaint!"
+.description
 = @complaint.description
-- @complaint.attachments.each do |attachment|
-  = attachment.url
+- unless @urls.empty? do
+  .urls
+    = "fontes:"
+    .fieldset
+      - @urls.each do |url_attachment|
+        = url_attachment.url
