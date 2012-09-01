@@ -1,7 +1,7 @@
 BondeDaUff::Application.routes.draw do
 
   match '/auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: 'sessions#create'
+  match '/auth/failure', to: 'sessions#create'
 
   root :to => "home#index"
 

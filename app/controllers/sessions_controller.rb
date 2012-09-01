@@ -8,6 +8,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    
+    session[:user_id] = nil
   end
 end
