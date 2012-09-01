@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a.brand {
+  background: image-url('logo.png');
+  height: 103px;
+  width: 250px;
+  text-indent: -999999px;
+  display: block;
+}
+
+#header {
+  height: 103px;
+  width: 100%;
+  background: red;
+
+  .logo {
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+
+#main_body {
+  width: 960px;
+  margin: 0 auto;
+  min-height: 300px;
+}
+
+#footer {
+  width: 100%;
+  background: red;
+  height: 80px;
+
+  .content {
+    width: 960px;
+    margin: 0 auto;
+  }
+}
