@@ -10,7 +10,7 @@ class Ability
     #permissoes usuario_logado
     unless user.new_record?
       can :create, Complaint
-      can :update, Complaint, :user_id => user.id
+      can [:edit, :update], Complaint, :user_id => user.id
     end
 
     #permissoes admin
