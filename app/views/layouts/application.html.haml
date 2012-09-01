@@ -23,8 +23,10 @@
         %a.float_left.brand(href=root_path) AloPrefeito
         - if user_signed_in?
           .login_infos.float_right
-            Olá,
-            = current_user.first_name
+            %p
+              Olá,
+              = current_user.first_name
+            %p= link_to t('header.logout')
           
     #main_body
       .content

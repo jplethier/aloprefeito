@@ -1,5 +1,5 @@
 .menu
   - if user_signed_in?
-    
+    = link_to t('buttons.new_complaint')
   - else
     = link_to 'Login with facebook', '/auth/facebook', :id => 'facebook_login'
