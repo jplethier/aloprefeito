@@ -1,6 +1,4 @@
-class ComplaintsController < ActionController::Base
-  protect_from_forgery
-
+class ComplaintsController < ApplicationController
   def new
     
   end

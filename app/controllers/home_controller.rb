@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_filter :authenticate_user, :except => :index
 
   def index
     @json = Attachment.all.to_gmaps4rails do |location, marker|
