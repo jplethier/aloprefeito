@@ -159,6 +159,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (>= 0.0.2)
       mime-types
+    pg (0.14.0)
     polyglot (0.3.3)
     pry (0.9.10)
       coderay (~> 1.0.5)
@@ -278,10 +279,10 @@ DEPENDENCIES
   launchy
   letter_opener
   make_voteable
-  mysql2
   omniauth
   omniauth-facebook
   paperclip
+  pg
   pry-debugger
   rails (= 3.1.1)
   rspec-rails (~> 2.6)
