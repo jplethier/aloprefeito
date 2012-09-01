@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120901044235) do
+ActiveRecord::Schema.define(:version => 20120901055734) do
 
   create_table "complaints", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20120901044235) do
     t.boolean  "anonymous",   :default => false, :null => false
     t.boolean  "resolved",    :default => false, :null => false
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "interests", :force => true do |t|
+    t.integer  "user_id",                        :null => false
+    t.integer  "complaint_id",                   :null => false
+    t.boolean  "send_email",   :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
