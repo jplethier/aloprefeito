@@ -12,6 +12,8 @@ class HomeController < ApplicationController
     #  marker.sidebar "i'm the sidebar"
     #  marker.json({ :id => 1, :foo => "bar" })
     #end
-    @json = Attachment.all.to_gmaps4rails
+    @json = Attachment.mappable.to_gmaps4rails do |attachment, marker|
+      marker.infowindow render_to_string(:partial => "infowindow", :locals => {:attachment => attachment})
+    end
   end
 end

@@ -1,0 +1,8 @@
+.infowindow
+  .infowindow-header
+    %h4=attachment.complaint.title
+  .infowindow-body
+    =attachment.complaint.description
+  .infowindow-footer
+    =link_to "Ir para denúncia", root_path#show_complaint_path(attachment.complaint)
+
