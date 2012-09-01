@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20120901055734) do
     t.boolean  "anonymous",   :default => false, :null => false
     t.boolean  "resolved",    :default => false, :null => false
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "interests", :force => true do |t|
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(:version => 20120901055734) do
     t.string   "provider",   :null => false
     t.string   "uid",        :null => false
     t.string   "fb_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
