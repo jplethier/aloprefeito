@@ -8,6 +8,8 @@ BondeDaUff::Application.routes.draw do
 
   resources :complaints, :only => [:new, :index, :show, :edit]
 
+  match '/logout', :to => "application#logout", :as => 'logout'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
