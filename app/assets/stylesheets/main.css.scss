@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Monospace';
+  background: #ececec;
 
   .content {
     display: inline-block;
@@ -20,7 +21,7 @@ a.brand {
 #main_body {
   width: 960px;
   margin: 0 auto;
-  min-height: 300px;
+  min-height: 500px;
 }
 
 #facebook_login {

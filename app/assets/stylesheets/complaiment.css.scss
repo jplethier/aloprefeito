@@ -1,7 +1,14 @@
 #complaints {
+  margin: 30px auto;
+  
   .left {
     float: left;
     width: 600px;
+
+    .title {
+      font-size: 18pt;
+      color: #404040;
+    }
   }
 
   .right {
