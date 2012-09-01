@@ -8,6 +8,8 @@ describe Complaint do
 
   describe 'associations' do
     it { should belong_to(:user) }
+    it { should have_many(:interests) }
+    it { should have_many(:attachments) }
   end
 
   describe 'acessibility' do

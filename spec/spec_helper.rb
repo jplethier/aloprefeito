@@ -7,6 +7,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
+require 'launchy'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -40,3 +41,13 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+Capybara.default_host = 'http://example.org'
+OmniAuth.config.test_mode = true
+#OmniAuth.config.add_mock(:facebook, {
+#  :uid => '12345',
+#  :nickname => 'zapnap',
+#  :info => {:first_name => 'zap',:last_name => 'nap',:email => 'zapnap@facebook.com'}, 
+#  :credentials => {:token => "qualquer_coisa"}
+#})
+

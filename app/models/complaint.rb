@@ -9,6 +9,7 @@ class Complaint < ActiveRecord::Base
 
   belongs_to :user
   has_many :interests
+  has_many :attachments
 
   def auto_add_interest_to_complainer
     self.interests.build(:user => self.user)

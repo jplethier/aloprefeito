@@ -8,10 +8,17 @@ describe "New Complaint Page" do
 
   before do
     # login_as FactoryGirl.create(:broker), :scope => :broker
+    OmniAuth.config.add_mock(:facebook, {
+      :uid => '12345',
+      :nickname => 'zap',
+      :info => {:first_name => 'zap',:last_name => 'nap',:email => 'zapnap@facebook.com'}, 
+      :credentials => {:token => "qualquer_coisa"}
+    })
+    visit "/auth/facebook"
     visit new_complaint_path
   end
 
-  it { should have_content('Novo Usuário') }
+  it { should have_content('Cadastrar Reclamação') }
   
 #  describe 'creating a complaint' do
 #    it 'successfully' do
