@@ -9,6 +9,7 @@ gem 'ckeditor'
 gem 'haml'
 gem "haml-rails"
 gem 'jquery-rails'
+gem 'therubyracer'
 gem 'make_voteable'
 gem 'mysql2'
 gem 'omniauth'
@@ -29,7 +30,6 @@ group :development, :test do
   gem 'letter_opener'
   gem 'pry-debugger'
   gem "rspec-rails", "~> 2.6"
-  gem 'therubyracer'
 end
 
 group :test do
