@@ -1,4 +1,10 @@
 BondeDaUff::Application.routes.draw do
+
+  match '/auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: 'sessions#create'
+
+  root :to => "application#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
