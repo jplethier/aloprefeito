@@ -26,7 +26,7 @@
             %p
               Olá,
               = current_user.first_name
-            %p= link_to t('header.logout')
+            %p= link_to t('header.logout'), '#', :class => 'btn btn-link'
           
     #main_body
       .content
