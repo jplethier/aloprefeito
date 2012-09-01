@@ -1,7 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Monospace'
+  font-family: 'Monospace';
+
+  .content {
+    display: inline-block;
+  }
 }
 
 a.brand {
