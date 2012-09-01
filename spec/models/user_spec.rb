@@ -6,6 +6,10 @@ describe User do
 
   its(:save) { should be_true }
 
+  describe 'associations' do
+    it { should have_many(:complaints) }
+  end
+
   describe 'acessibility' do
     it { should allow_mass_assignment_of(:uid) }
     it { should allow_mass_assignment_of(:provider) }
