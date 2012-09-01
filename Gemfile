@@ -10,7 +10,7 @@ gem 'haml'
 gem "haml-rails"
 gem 'jquery-rails'
 gem 'make_voteable'
-gem 'mysql'
+gem 'mysql2'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'paperclip'
