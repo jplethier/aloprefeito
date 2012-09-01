@@ -2,15 +2,18 @@ class Attachment < ActiveRecord::Base
   attr_protected :id
   has_attached_file :attachment
 
-  validates :latitude, :presence => true, :if => :gmaps?
-  validates :longitude, :presence => true, :if => :gmaps?
-  validates :gmaps,    :inclusion => { in: [true, false] }
+  TYPES = {:font => 1, :embed => 2, :map => 3, :picture => 4}
+
+  validates :latitude, :presence => true,  :if => :map?
+  validates :longitude, :presence => true, :if => :map?
 
   belongs_to :complaint
+  scope :mappable, where(:type => TYPES[:map])
 
-  scope :mappable, where(:gmaps => true)
 
-  TYPES = {:font => 1, :embed => 2, :map => 3, :picture => 4}
+  def map?
+    self.type == TYPES[:map]
+  end
 
   acts_as_gmappable :latitude => 'lat', :longitude => 'lng', :process_geocoding => false
 

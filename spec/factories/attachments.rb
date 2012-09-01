@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :attachment do
-    gmaps false
+    type { Attachment::TYPES[:url] }
     complaint { FactoryGirl.create(:complaint) }
     factory :url_attachment do
       url 'www.google.com'
@@ -8,7 +8,7 @@ FactoryGirl.define do
     factory :gmaps_attachment do
       latitude 0
       longitude 0
-      gmaps true
+      type { Attachment::TYPES[:gmap] }
     end
   end
 end

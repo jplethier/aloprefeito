@@ -4,8 +4,8 @@ class Complaint < ActiveRecord::Base
   MAX_PICTURES = 3
 
   validates :description, :presence => true
-  validates :resolved, :inclusion => { in : [true, false]}
-  validates :anonymous, :inclusion => { in : [true, false]}
+  validates :resolved, :inclusion => { in: [true, false]}
+  validates :anonymous, :inclusion => { in: [true, false]}
 
   before_validation :pictures_within_bounds
   before_validation :one_map_only
@@ -19,7 +19,7 @@ class Complaint < ActiveRecord::Base
   has_many :attachments
 
   has_many :pictures, :class_name => :Attachment, :conditions => {:type => Attachment::TYPES[:picture]}
-  has_many :fonts, :class_namce => :Attachment, :conditions => {:type => Attachment::TYPES[:font]}
+  has_many :fonts, :class_name => :Attachment, :conditions => {:type => Attachment::TYPES[:font]}
   has_many :embeds, :class_name => :Attachment, :conditions => {:type => Attachment::TYPES[:embed]}
   has_many :maps, :class_name => :Attachment, :conditions => {:type => Attachment::TYPES[:map]}
 

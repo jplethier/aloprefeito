@@ -8,8 +8,8 @@ class ComplaintsController < ApplicationController
   def show
     @complaint = Complaint.find(params[:id])
     @fonts = @complaint.fonts
-    @embed = @complaint.embed
-    @maps = @complaint.gmaps
+    @embed = @complaint.embeds.first
+    @map = @complaint.maps.first
     @pictures = @complaint.pictures
   end
 
