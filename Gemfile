@@ -31,6 +31,7 @@ group :development, :test do
   gem 'pry-debugger'
   gem "rspec-rails", "~> 2.6"
   gem 'capistrano'
+  gem 'rvm-capistrano'
 end
 
 group :test do

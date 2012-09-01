@@ -207,6 +207,8 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.11.0)
     rubyzip (0.9.9)
+    rvm-capistrano (1.2.6)
+      capistrano (>= 2.0.0)
     sass (3.2.1)
     sass-rails (3.1.6)
       actionpack (~> 3.1.0)
@@ -269,6 +271,7 @@ DEPENDENCIES
   pry-debugger
   rails (= 3.1.1)
   rspec-rails (~> 2.6)
+  rvm-capistrano
   sass-rails (~> 3.1.4)
   shoulda-matchers
   simplecov
