@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
-#require File.expand_path("../../../app/controllers/complaints_controller", __FILE__)
 
 describe "Sign in" do
   include Warden::Test::Helpers
@@ -31,6 +30,7 @@ describe "Sign in" do
     it 'successfully' do
       # click_on 'Login with facebook'
       should have_content('Olá, zap')
+      should have_link('Sair', :href => logout_path)
     end
   end
 end
