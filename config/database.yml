@@ -19,5 +19,5 @@ production:
   adapter: mysql2
   encoding: utf8
   database: denuncias
-  username: sample
-  password: sample
+  username: denuncias
+  password: tzzk7662
