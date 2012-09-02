@@ -7,6 +7,8 @@
       url: 'Link'
     images: 'Fotos'
     links: 'Links'
+    map:
+      city: 'Cidade'
     maps: 'Onde?'
     new: 'Qual a denúncia?'
     no_images: 'Nenhuma foto'

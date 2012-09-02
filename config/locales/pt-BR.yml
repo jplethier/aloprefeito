@@ -3,5 +3,6 @@
   activerecord:
     attributes:
       complaint:
+        anonymous: 'Denunciar como anônimo'
         description: 'Descrição'
         title: "Título"
