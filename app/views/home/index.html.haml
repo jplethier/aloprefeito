@@ -7,7 +7,8 @@
   - else
     = link_to 'Login with facebook', user_omniauth_authorize_path(:facebook), :id => 'facebook_login'
 .row
-#map.span6
+#map
   = gmaps(:map_options => { :center_latitude => -13, :center_longitude => -48, :zoom => 4 },
            :markers  => { :data => @json, :options => {"list_container" => "markers_list"} })
-#markers_list.span6
+#markers_list
+  %p= t('home.complaints')
