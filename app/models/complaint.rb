@@ -14,6 +14,7 @@ class Complaint < ActiveRecord::Base
   before_validation :pictures_within_bounds
   before_validation :one_map_only
   before_validation :one_embed_only
+  before_validation :three_fonts_only
 
   before_save :auto_add_interest_to_user
 
@@ -71,6 +72,21 @@ class Complaint < ActiveRecord::Base
 
     return if self.pictures.blank?
     errors.add(:base, "Too many pictures") if self.pictures.length > MAX_PICTURES
+  end
+
+  def three_fonts_only
+    
+    #removendo relacionamentos que estao vazios
+    fonts_to_remove = []
+    self.fonts.each do |font|
+      fonts_to_remove << font if font.attachment_file_name.nil?
+    end
+    fonts_to_remove.each do |font|
+      self.fonts -= [font]
+    end
+
+    return if self.fonts.blank?
+    errors.add(:base, "Too many fonts") if self.fonts.length > 3
   end
 
 end
