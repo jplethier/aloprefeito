@@ -51,7 +51,7 @@
       :description => "Disse que ia fazer e nao fez! Vejam o video no embed.",
       :anonymous => true, :resolved => false)
 
-  d.attachments.create(:url => "www.podeisso.com",
+  d.attachments.create(:url => "http://www.youtube.com/watch?v=zAr2pzB-BU4",
                        :attachment_type => Attachment::TYPES[:embed]
   )
   d.attachments.create(:latitude => "-20.1", :longitude => "-49.3", :city => "Rio de Janeiro",
