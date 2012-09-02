@@ -1,12 +1,13 @@
 #coding: UTF-8
 "pt-BR":
   complainment:
-    attachments: 'Anexos'
+    attachments: 'Mais informações?'
     fonts:
       url: 'Link'
     images: 'Fotos'
     links: 'Links'
-    new: 'Nova Denúncia'
+    maps: 'Onde?'
+    new: 'Qual a denúncia?'
     no_images: 'Nenhuma foto'
     no_links: 'Nenhum link relacionado'
     no_title: 'Sem título'

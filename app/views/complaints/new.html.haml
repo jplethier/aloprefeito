@@ -42,4 +42,12 @@
         = pic.label :attachment, t('complainment.picture.attachment')
         .controls
           = pic.file_field :attachment
->>>>>>> começando css da pagian de new
+
+  .left
+    %h1= t('complainment.maps')
+    = f.fields_for :maps do |map|
+      = font.hidden_field :attachment_type, :value => 3
+      .control-group
+        = font.label :city, t('complainment.maps.city')
+        .controls
+          = font.text_field :city

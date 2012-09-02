@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :complaint do
+    title 'Titulo'
     description 'Description'
     resolved false
     anonymous false
