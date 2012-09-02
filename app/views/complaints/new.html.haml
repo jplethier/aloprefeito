@@ -18,7 +18,8 @@
     = f.submit t('buttons.complainment.new'), :class => 'btn'
 
   .left
-    %h1= t('complainment.attachments')
+    %h1.attachments= t('complainment.attachments')
+    %span= t('complainment.optionals')
     %p= t('complainment.urls')
     = f.fields_for :fonts do |font|
       = font.hidden_field :attachment_type, :value => 1
@@ -28,7 +29,7 @@
           = font.text_field :url
 
     %p= t('complainment.video')
-    = f.fields_for :videos do |video|
+    = f.fields_for :embeds do |video|
       = video.hidden_field :attachment_type, :value => 2
       .control-group
         = video.label :url, t('complainment.fonts.url')

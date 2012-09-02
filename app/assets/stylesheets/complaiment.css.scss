@@ -73,10 +73,18 @@
     .left {
       width: 315px;
 
+      ul.token-input-list-facebook {
+        width: 250px !important;
+      }
+
       h1 {
         width: 310px;
         font-size: 24pt;
         font-family: 'Helvetica Neue';
+      }
+
+      .attachments {
+        margin-bottom: 0;
       }
     }
   }

@@ -36,10 +36,9 @@ class ComplaintsController < ApplicationController
     @complaint = Complaint.new
     3.times do
       @complaint.fonts.build
-    end
-    3.times do
       @complaint.pictures.build
     end
+    @complaint.embeds.build
   end
 
   def create

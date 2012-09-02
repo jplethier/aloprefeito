@@ -13,6 +13,7 @@
     no_title: 'Sem título'
     no_user: 'Anônimo'
     no_video: 'Nenhum vídeo relacionado'
+    optionals: '*Opcionais'
     picture: 
       attachment: 'Arquivo'
     pictures: 'Imagens/Fotos'
