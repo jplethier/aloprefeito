@@ -49,6 +49,11 @@ class Complaint < ActiveRecord::Base
   end
 
   def one_embed_only
+    # eliminando o video se nao tiver sido cadastrado um  
+    if self.embeds.first
+      self.embeds -= [self.embeds.first] if self.embeds.first.url.nil? || self.embeds.first.url.blank?
+    end
+
     return if self.embeds.blank?
     errors.add(:base, "Too many embeds") if self.embeds.length > 1
   end
