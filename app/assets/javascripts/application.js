@@ -10,10 +10,12 @@
 //= require_tree .
 
 $(function() {
-  $("#complaint_tags").tokenInput("/complaints/tags.json"), {
+  $("#complaint_tags").tokenInput("/complaints/tags.json", 
+	{
+		hintText: 'Digite sua tag...',
+		noResultsText: 'Nenhuma tag encontrada, digite uma nova e aperte espaço.',    
     preventDuplicates: true,
-		noResultsText: 'No result, hit space to create a new tag',
-    animateDropdown:   false
-  };
+    animateDropdown:   true,
+    theme: 'facebook'
+  });
 });
-
