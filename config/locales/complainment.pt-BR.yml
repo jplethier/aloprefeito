@@ -2,6 +2,7 @@
 "pt-BR":
   complainment:
     attachments: 'Mais informações?'
+    comment_confirm: 'Confirmar'
     comments: "Comentários"
     fonts:
       url: 'Link'

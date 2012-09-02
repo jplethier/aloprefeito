@@ -24,7 +24,7 @@
       %br
       = f.hidden_field :user_id, :value => current_user.id
       = f.hidden_field :commentable_id, :value => @complaint.id
-      = f.submit "Comentar", :class => "btn btn-primary"
+      = f.submit t('complainment.comment_confirm'), :class => "btn btn-primary", :style => 'margin-left: 10px;'
     .clear
     .title#complaint
       = t('complainment.comments')
