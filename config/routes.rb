@@ -7,7 +7,9 @@ BondeDaUff::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :complaints, :only => [:new, :index, :show, :edit, :create]
+  resources :complaints, :only => [:new, :index, :show, :edit, :create] do
+    resources :comments, :only => :create
+  end
 
   match '/logout', :to => "application#logout", :as => 'logout'
 

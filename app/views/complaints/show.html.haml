@@ -17,9 +17,14 @@
 
   #comments
     .title#complaint
+      = form_for [@complaint, @comment] do |f|
+        = f.text_area :comment, :rows => 3, :cols => 240, :class => "caixa_comentario"
+        %br
+        = f.hidden_field :user_id, :value => session[:user_id]
+        = f.submit "Comentar", :class => "btn btn-primary"
       = "Comentários"
-    - @complaint.comments.each do |comment|
-      .comment= comment.comment
+    - @comments.each_with_index do |comment, index|
+      .comment= index.to_s + " - " + comment.comment
       %hr
 
 

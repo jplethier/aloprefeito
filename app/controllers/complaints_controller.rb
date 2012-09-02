@@ -27,8 +27,10 @@ class ComplaintsController < ApplicationController
     @video = @complaint.embeds.first
     @map = @complaint.maps.first
     @pictures = @complaint.pictures
+    @comments = @complaint.comments.order("created_at DESC")
 
     @json = @complaint.maps.to_gmaps4rails
+    @comment = @complaint.comments.build
 
   end
 
