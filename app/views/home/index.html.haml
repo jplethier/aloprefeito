@@ -1,6 +1,8 @@
 .menu
   - if user_signed_in?
-    = link_to t('buttons.new_complaint')
+    .complaint
+      %h1= t('messages.login_welcome')
+      = link_to t('buttons.new_complaint'), new_complaint_path, :class => 'btn btn-large btn-primary', :id => 'complaint_btn'
     = link_to t('buttons.my_complaints')
   - else
     = link_to 'Login with facebook', user_omniauth_authorize_path(:facebook), :id => 'facebook_login'
