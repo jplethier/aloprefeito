@@ -1,5 +1,4 @@
 = form_for @complaint, :class => 'form-horizontal' do |f|
-
   .span12
     .span5
       %h1= t('complainment.new')
@@ -19,15 +18,16 @@
 
     .span6
       %h1= t('complainment.maps')
-      = text_field_tag :autocomplete_location, nil, {:id => :searchTextField}
-      #map_canvas
-      -#= gmaps({ "map_options" => { "libraries" => ["places"], :center_latitude => -18, :center_longitude => -52, :zoom => 3 } })
+      %p Navegue no mapa abaixo e clique na posição desejada
+      =gmaps({ "map_options" => { "libraries" => ["places"], :center_latitude => -22, :center_longitude => -44, :zoom => 6 } })
       = f.fields_for :maps do |map|
-        = font.hidden_field :attachment_type, :value => 3
+        = map.hidden_field :latitude, :id => "latitude_field"
+        = map.hidden_field :longitude, :id => "longitude_field"
+        = map.hidden_field :attachment_type, :value => Attachment::TYPES[:map]
         .control-group
-          = font.label :city, t('complainment.maps.city')
+          = map.label :city, t('complainment.maps.city')
           .controls
-            = font.text_field :city
+            = map.text_field :city
 
   .span12
     %h1.attachments= t('complainment.attachments')
@@ -61,3 +61,41 @@
             = video.text_field :url
     .span12
       = f.submit t('buttons.complainment.new'), :class => 'btn'
+
+      =content_for :scripts do
+        %script{:type => "text/javascript", :charset => "utf-8"}
+          var markersArray = [];
+          Gmaps.map.callback = function() {
+          google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
+          clearOverlays();
+          placeMarker(event.latLng);
+          updateFormLocation(event.latLng);
+          });
+          };
+          function updateFormLocation(latLng) {
+          document.getElementById("latitude_field").value = (latLng.lat());
+          document.getElementById("longitude_field").value = (latLng.lng());
+          }
+          function placeMarker(latLng) {
+          var marker = new google.maps.Marker({
+          position: latLng,
+          map: Gmaps.map.serviceObject,
+          draggable: true
+          });
+          markersArray.push(marker);
+          var infowindow = new google.maps.InfoWindow({
+          content: '<div class="popup"><h2>Local da denuncia</h2><p>Você pode me arrastar E ajustar o zoom!</p>'
+          });
+          infowindow.open(Gmaps.map.serviceObject,marker);
+          google.maps.event.addListener(marker, 'dragend', function() {
+          updateFormLocation(this.getPosition());
+          });
+          }
+          function clearOverlays() {
+          if (markersArray) {
+          for (var i = 0; i < markersArray.length; i++ ) {
+          markersArray[i].setMap(null);
+          }
+          }
+          markersArray.length = 0;
+          }

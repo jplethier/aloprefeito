@@ -41,6 +41,7 @@ class ComplaintsController < ApplicationController
       @complaint.pictures.build
     end
     @complaint.embeds.build
+    @complaint.maps.build
   end
 
   def create
