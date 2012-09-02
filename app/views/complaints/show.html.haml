@@ -17,3 +17,5 @@
       - @fonts.each do |font|
         - if font.url
           %li= link_to font.url, font.url, :target => '_blank'
+  - else
+    %p= t('complainment.no_links')

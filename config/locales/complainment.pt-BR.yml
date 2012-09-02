@@ -3,5 +3,6 @@
   complainment:
     links: 'Links'
     new: 'Cadastrar Reclamação'
+    no_links: 'Nenhum link relacionado'
     no_title: 'Sem título'
     no_user: 'Anônimo'
