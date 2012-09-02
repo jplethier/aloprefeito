@@ -1,6 +1,7 @@
 .left
   .title#complaint
-    = @complaint.title || t('complainment.no_title')
+    = "#{(@complaint.title || t('complainment.no_title'))}"
+    %span= " - #{(@complaint.user ? @complaint.user.first_name : t('complainment.no_user'))}"
   .description
     = @complaint.description
 
@@ -10,8 +11,8 @@
   - else
     = gmaps(:map_options => { :center_latitude => -13, :center_longitude => -48, :zoom => 4, :draggable => false, "disableDefaultUI" => true, "disableDoubleClickZoom" => true }, :markers => {:data => @json})
 
+  .title= t('complaiment.links')
   - if @fonts && !@fonts.empty?
-    .title= t('complaiment.links')
     %ul.urls
       - @fonts.each do |font|
         - if font.url

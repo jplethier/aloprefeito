@@ -8,12 +8,41 @@
     .title {
       font-size: 18pt;
       color: #404040;
+      font-weight: bold;
+
+      span {
+        font-weight: lighter; 
+        font-size: 12pt; 
+        font-family: 'monospace';
+      }
+    }
+
+    .description {
+      width: 500px;
+      padding: 20px;
+      display: inline-block;
     }
   }
 
   .right {
     float: right;
     width: 280px;
+
+    .title {
+      font-size: 14pt;
+      color: #404040;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 10px;
+
+      li {
+        word-wrap:break-word
+      }
+    }
 
     .map_container {
       display: inline-block;
