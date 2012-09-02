@@ -1,4 +1,7 @@
 class Complaint < ActiveRecord::Base
+
+  acts_as_commentable
+
   attr_protected :id
 
   MAX_PICTURES = 3
