@@ -9,7 +9,8 @@
     .control-group
       = f.label :description
       .controls
-        = f.text_area :description
+        / = f.text_area :description
+        = cktext_area :complaint, :description, :toolbar => 'Basic'
     .control-group
       = f.label :tags
       .controls
