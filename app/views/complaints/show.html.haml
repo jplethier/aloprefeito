@@ -22,14 +22,16 @@
     = form_for [@complaint, @comment] do |f|
       = f.text_area :comment, :rows => 3, :cols => 240, :class => "caixa_comentario"
       %br
-      = f.hidden_field :user_id, :value => session[:user_id]
+      = f.hidden_field :user_id, :value => current_user.id
+      = f.hidden_field :commentable_id, :value => @complaint.id
       = f.submit "Comentar", :class => "btn btn-primary"
     .clear
     .title#complaint
       = t('complainment.comments')
       .comments_list
         - @comments.each_with_index do |comment, index|
-          .comment= index.to_s + " - " + comment.comment
+          .comment= comment.comment
+          %p.comment= (index + 1).to_s + " - " + comment.user.first_name + " " + comment.user.last_name
           %hr
       
 .right
