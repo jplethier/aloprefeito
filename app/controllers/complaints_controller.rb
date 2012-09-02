@@ -11,6 +11,9 @@ class ComplaintsController < ApplicationController
     @embed = @complaint.embeds.first
     @map = @complaint.maps.first
     @pictures = @complaint.pictures
+
+    @json = @complaint.maps.to_gmaps4rails
+
   end
 
   def new
