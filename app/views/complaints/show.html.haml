@@ -9,27 +9,28 @@
     .title#complaint
       = t('complainment.images')
     - if @pictures && !@pictures.empty?
-      .ul.images
+      %ul.images
         - @pictures.each do |picture|
           - if picture.attachment
             %li
-              %img{ :src => picture.attachment }
+              %a{ :href => picture.attachment, :rel => "lightbox[complaint]"}
+                %img{ :src => picture.attachment(:thumb) }
     - else
       .description= t('complainment.no_images')
 
   #comments
+    = form_for [@complaint, @comment] do |f|
+      = f.text_area :comment, :rows => 3, :cols => 240, :class => "caixa_comentario"
+      %br
+      = f.hidden_field :user_id, :value => session[:user_id]
+      = f.submit "Comentar", :class => "btn btn-primary"
+    .clear
     .title#complaint
-      = form_for [@complaint, @comment] do |f|
-        = f.text_area :comment, :rows => 3, :cols => 240, :class => "caixa_comentario"
-        %br
-        = f.hidden_field :user_id, :value => session[:user_id]
-        = f.submit "Comentar", :class => "btn btn-primary"
-      = "Comentários"
-    - @comments.each_with_index do |comment, index|
-      .comment= index.to_s + " - " + comment.comment
-      %hr
-
-
+      = t('complainment.comments')
+      .comments_list
+        - @comments.each_with_index do |comment, index|
+          .comment= index.to_s + " - " + comment.comment
+          %hr
       
 .right
   - if @map

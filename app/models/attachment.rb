@@ -1,6 +1,6 @@
 class Attachment < ActiveRecord::Base
   attr_protected :id
-  has_attached_file :attachment, :path => ':rails_root/public/system/attachments/:id_partition/pictures/:filename', :url => '/system/attachments/:id_partition/pictures/:filename'
+  has_attached_file :attachment, :path => ':rails_root/public/system/attachments/:id_partition/pictures/:style/:filename', :url => '/system/attachments/:id_partition/pictures/:style/:filename', :styles => { :thumb => "100x100#" }
 
   TYPES = {:font => 1, :embed => 2, :map => 3, :picture => 4}
 

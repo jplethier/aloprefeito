@@ -27,9 +27,23 @@
       border-top: solid 1px #404040;
       padding-top: 20px;
       margin-top: 20px;
+
+      ul {
+        list-style: none;
+        
+        li {
+          float: left;
+          margin: 10px;
+        }
+      }
     }
 
     #comments {
+      clear: both;
+      border-top: solid 1px #404040;
+      padding-top: 20px;
+      margin-top: 20px;
+
       .comment {
         margin-top: 20px;
       }
