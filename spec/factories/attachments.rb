@@ -5,7 +5,7 @@ FactoryGirl.define do
       attachment.complaint ||= FactoryGirl.create(:complaint)
     end
     factory :url_attachment do
-      attachment_type { Attachment::TYPES[:url] }
+      attachment_type { Attachment::TYPES[:font] }
       url 'www.google.com'
     end
     factory :embed_attachment do

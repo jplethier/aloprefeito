@@ -2,4 +2,6 @@
 
 = form_for(@complaint) do |f|
   = f.text_area :description
+  = fields_for :fonts do |font|
+    = font.text_field :url
   = f.submit I18n.t('buttons.complainment.new')

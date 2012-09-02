@@ -35,8 +35,8 @@ describe "New Complaint Page" do
 
     context "Add links to complaint" do
       before(:each) do
-        click_link(I18n.t('buttons.complainment.add_link'))
-        fill_in("complaint_attachments_link", :with => "www.google.com")
+        #click_link(I18n.t('buttons.complainment.add_link'))
+        fill_in("font_url", :with => "www.google.com")
       end
     end
   end

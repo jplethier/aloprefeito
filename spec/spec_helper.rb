@@ -43,7 +43,10 @@ RSpec.configure do |config|
 end
 
 Capybara.default_host = 'http://example.org'
+
+require 'omniauth'
 OmniAuth.config.test_mode = true
+
 #OmniAuth.config.add_mock(:facebook, {
 #  :uid => '12345',
 #  :nickname => 'zapnap',

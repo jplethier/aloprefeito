@@ -23,6 +23,8 @@ class Complaint < ActiveRecord::Base
   has_many :embeds, :class_name => :Attachment, :conditions => {:attachment_type => Attachment::TYPES[:embed]}
   has_many :maps, :class_name => :Attachment, :conditions => {:attachment_type => Attachment::TYPES[:map]}
 
+  accept_nested_attributes_for :pictures, :fonts, :embeds, :maps
+
   def auto_add_interest_to_user
     self.interests.build(:user => self.user)
     self.user = nil if self.anonymous?

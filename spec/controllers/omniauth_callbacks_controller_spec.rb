@@ -10,7 +10,6 @@ describe Users::OmniauthCallbacksController do
       :info => {:first_name => 'zap',:last_name => 'nap',:email => 'zapnap@facebook.com'}, 
       :credentials => {:token => "qualquer_coisa"}
     })
-    binding.pry
     request.env["devise.mapping"] = Devise.mappings[:user] 
     request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
   end

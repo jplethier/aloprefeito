@@ -18,6 +18,7 @@ class ComplaintsController < ApplicationController
 
   def new
     @complaint = Complaint.new
+    @complaint.build_fonts
   end
 
   def create
