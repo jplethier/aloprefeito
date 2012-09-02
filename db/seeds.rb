@@ -57,5 +57,18 @@
   d.attachments.create(:latitude => "-20.1", :longitude => "-49.3", :city => "Rio de Janeiro",
                        :attachment_type => Attachment::TYPES[:map]
   )
+  u = User.create(:last_name => "Bond", :first_name => "James",
+                     :uid => "213612312", :provider => "facebook", :email => "bobby_maciel@hotmail.com")
+  e = Complaint.create(
+      :title => "Boeiro explodindo",
+      :description => "Voou tartaruga ninja para todos os lados",
+      :anonymous => false, :resolved => false, :user => u)
+
+  e.attachments.create(:url => "http://www.youtube.com/watch?v=zAr2pzB-BU4",
+                       :attachment_type => Attachment::TYPES[:embed]
+  )
+  e.attachments.create(:latitude => "-22.11022", :longitude => "-41.4243", :city => "Rio de Janeiro",
+                       :attachment_type => Attachment::TYPES[:map]
+  )
 
 
