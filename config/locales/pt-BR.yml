@@ -1,0 +1,7 @@
+#coding: UTF-8
+"pt-BR":
+  activerecord:
+    attributes:
+      complaint:
+        description: 'Descrição'
+        title: "Título"

@@ -1,9 +1,45 @@
-= t('complainment.new')
-
-= form_for(@complaint) do |f|
-  = f.text_area :description
-  = fields_for :fonts do |font|
-    = font.text_field :url
-  = f.submit I18n.t('buttons.complainment.new')
-  = f.text_field :tag_list, :id => "complaint_tags", "data-pre" => @complaint.tags.map(&:attributes).to_json
+= form_for @complaint, :class => 'form-horizontal' do |f|
   
+  .left
+    %h1= t('complainment.new')
+    .control-group
+      = f.label :title
+      .controls
+        = f.text_field :title
+    .control-group
+      = f.label :description
+      .controls
+        = f.text_area :description
+    .control-group
+      = f.label :tags
+      .controls
+        = f.text_field :tag_list, :id => "complaint_tags", "data-pre" => @complaint.tags.map(&:attributes).to_json
+        
+    = f.submit t('buttons.complainment.new'), :class => 'btn'
+
+  .left
+    %h1= t('complainment.attachments')
+    %p= t('complainment.urls')
+    = f.fields_for :fonts do |font|
+      = font.hidden_field :attachment_type, :value => 1
+      .control-group
+        = font.label :url, t('complainment.fonts.url')
+        .controls
+          = font.text_field :url
+
+    %p= t('complainment.video')
+    = f.fields_for :videos do |video|
+      = video.hidden_field :attachment_type, :value => 2
+      .control-group
+        = video.label :url, t('complainment.fonts.url')
+        .controls
+          = video.text_field :url
+
+    %p= t('complainment.pictures')
+    = f.fields_for :pictures do |pic|
+      = pic.hidden_field :attachment_type, :value => 4
+      .control-group
+        = pic.label :attachment, t('complainment.picture.attachment')
+        .controls
+          = pic.file_field :attachment
+>>>>>>> começando css da pagian de new

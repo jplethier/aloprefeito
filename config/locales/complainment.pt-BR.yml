@@ -1,11 +1,19 @@
 #coding: UTF-8
 "pt-BR":
   complainment:
+    attachments: 'Anexos'
+    fonts:
+      url: 'Link'
     images: 'Fotos'
     links: 'Links'
-    new: 'Cadastrar Reclamação'
+    new: 'Nova Denúncia'
     no_images: 'Nenhuma foto'
     no_links: 'Nenhum link relacionado'
     no_title: 'Sem título'
     no_user: 'Anônimo'
     no_video: 'Nenhum vídeo relacionado'
+    picture: 
+      attachment: 'Arquivo'
+    pictures: 'Imagens/Fotos'
+    urls: 'Links relacionados'
+    video: 'Vídeo relacionado'
