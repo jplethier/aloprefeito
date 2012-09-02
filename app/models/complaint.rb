@@ -49,11 +49,21 @@ class Complaint < ActiveRecord::Base
   end
 
   def one_embed_only
-    return if self.maps.blank?
+    return if self.embeds.blank?
     errors.add(:base, "Too many embeds") if self.embeds.length > 1
   end
 
   def pictures_within_bounds
+    
+    #removendo relacionamentos que estao vazios
+    pictures_to_remove = []
+    self.pictures.each do |pic|
+      pictures_to_remove << pic if pic.attachment_file_name.nil?
+    end
+    pictures_to_remove.each do |pic|
+      self.pictures -= [pic]
+    end
+
     return if self.pictures.blank?
     errors.add(:base, "Too many pictures") if self.pictures.length > MAX_PICTURES
   end
