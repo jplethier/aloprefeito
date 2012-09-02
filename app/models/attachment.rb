@@ -30,4 +30,8 @@ class Attachment < ActiveRecord::Base
    "#{self.street}, #{self.city}, #{self.country}"
   end
 
+  def gmaps4rails_sidebar
+    "Sou uma sidebar!"
+  end
+
 end

@@ -6,7 +6,8 @@
     = link_to t('buttons.my_complaints')
   - else
     = link_to 'Login with facebook', user_omniauth_authorize_path(:facebook), :id => 'facebook_login'
-#map
+.row
+#map.span6
   = gmaps(:map_options => { :center_latitude => -13, :center_longitude => -48, :zoom => 4 },
-             :markers  => { :data => @json })
-#sidebar
+           :markers  => { :data => @json, :options => {"list_container" => "markers_list"} })
+#markers_list.span6
