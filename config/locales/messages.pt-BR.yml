@@ -4,3 +4,4 @@
     success_login: "Login efetuado com sucesso. Olá, #{name}!"
     failure_complaint_save: "Não foi possível salvar a denúncia."
     success_complaint_save: "A denúncia foi salva com sucesso"
+    signout_welcome: 'Obras inacabadas? Ruas sem iluminação? Promessas não cumpridas?<br/>Cadastre-se e denuncie!'
