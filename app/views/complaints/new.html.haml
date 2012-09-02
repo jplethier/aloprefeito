@@ -1,7 +1,12 @@
 = form_for @complaint, :class => 'form-horizontal' do |f|
+  = f.hidden_field :user_id, :value => current_user.id
   .span12
     .span5
       %h1= t('complainment.new')
+      %p
+        = f.check_box :anonymous, :checked => true, :style => 'float: left;'
+        = f.label :anonymous, :style => 'float: left; margin-left: 5px;'
+      .clear
       .control-group
         = f.label :title
         .controls
@@ -25,7 +30,7 @@
         = map.hidden_field :longitude, :id => "longitude_field"
         = map.hidden_field :attachment_type, :value => Attachment::TYPES[:map]
         .control-group
-          = map.label :city, t('complainment.maps.city')
+          = map.label :city, t('complainment.map.city')
           .controls
             = map.text_field :city
 
