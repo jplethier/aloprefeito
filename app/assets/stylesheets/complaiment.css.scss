@@ -83,6 +83,15 @@
     .left {
       width: 315px;
 
+      #cke_complaint_description {
+        width: 270px !important;
+        overflow: hidden;
+
+        table.cke_editor {
+          width: 260px !important;
+        }
+      }
+
       ul.token-input-list-facebook {
         width: 250px !important;
       }

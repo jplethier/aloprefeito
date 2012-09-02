@@ -1,4 +1,6 @@
 BondeDaUff::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   get "complaints/tags" => "complaints#tags", :as => :tags
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"} do

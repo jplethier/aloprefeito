@@ -3,7 +3,7 @@
     = "#{(@complaint.title || t('complainment.no_title'))}"
     %span= " - #{(@complaint.user ? @complaint.user.first_name : t('complainment.no_user'))}"
   .description
-    = @complaint.description
+    = @complaint.description.html_safe
 
   #images
     .title#complaint

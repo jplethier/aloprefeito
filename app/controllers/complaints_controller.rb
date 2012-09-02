@@ -45,9 +45,8 @@ class ComplaintsController < ApplicationController
 
   def create
     @complaint = Complaint.new params[:complaint]
-    @complaint.description = 'aff'
     if @complaint.save
-      flash[:error] = I18n.t('messages.success_complaint_save')
+      flash[:success] = I18n.t('messages.success_complaint_save')
       redirect_to complaint_path(@complaint)
     else
       flash.now[:error] = I18n.t('messages.failure_complaint_save')
