@@ -15,6 +15,14 @@
     - else
       .description= t('complainment.no_images')
 
+  #comments
+    .title#complaint
+      = "Comentários"
+    - @complaint.comments.each do |comment|
+      .comment= comment.comment
+      %hr
+
+
       
 .right
   - if @map

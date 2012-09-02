@@ -24,7 +24,7 @@ describe "Show Complaint Page" do
 
       it { should have_content(@attachment.url) }
 
-      context "when have more than one link" do
+      context "when it has more than one link" do
         before do
           @second_attachment = FactoryGirl.create :url_attachment, :url => 'www.bing.com', :complaint => @complaint
           visit complaint_path(@complaint)
@@ -44,6 +44,16 @@ describe "Show Complaint Page" do
       end
 
     end
+
+  end
+
+  context "Complaint with comments" do
+    before do
+      @comment = FactoryGirl.create :comment, :commentable => @complaint
+      visit complaint_path(@complaint)
+    end
+
+    it { should have_content(@comment.comment)}
 
   end
 
