@@ -79,7 +79,7 @@ class Complaint < ActiveRecord::Base
     #removendo relacionamentos que estao vazios
     fonts_to_remove = []
     self.fonts.each do |font|
-      fonts_to_remove << font if font.attachment_file_name.nil?
+      fonts_to_remove << font if font.url.nil?
     end
     fonts_to_remove.each do |font|
       self.fonts -= [font]
