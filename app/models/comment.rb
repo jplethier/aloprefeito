@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
 
+  # comentando
   include ActsAsCommentable::Comment
 
   belongs_to :commentable, :polymorphic => true
