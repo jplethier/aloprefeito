@@ -19,3 +19,10 @@
           %li= link_to font.url, font.url, :target => '_blank'
   - else
     %p= t('complainment.no_links')
+
+  .title= t('complainment.video')
+  - if @video
+    %p= link_to @video.url, @video.url, :target => '_blank'
+    / %embed{ :autoplay => "false", :src => @video.url, :width => "50", :height =>"50" }
+  - else
+    %p= t('complainment.no_video')

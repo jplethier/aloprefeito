@@ -10,6 +10,14 @@ class Attachment < ActiveRecord::Base
   belongs_to :complaint
   scope :mappable, where(:attachment_type => TYPES[:map])
 
+  # TODO: caso a gente decida usar o embed para exibir o video na pagina de show
+  # before_save :set_embed_url, :if => 'self.attachment_type.to_i == 2'
+
+  # def set_embed_url
+  #   if self.attachment_type.to_i == 2
+  #     self.url.gsub('watch?v=', '/embed/')
+  #   end
+  # end
 
   def map?
     self.attachment_type == TYPES[:map]
