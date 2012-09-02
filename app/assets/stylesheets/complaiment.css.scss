@@ -1,6 +1,6 @@
 #complaints {
   margin: 30px auto;
-  
+
   .left {
     float: left;
     width: 600px;
@@ -14,5 +14,18 @@
   .right {
     float: right;
     width: 280px;
+
+    .map_container {
+      display: inline-block;
+      background: transparent;
+      border: none;
+      width: 310px;
+
+      #map {
+        margin: 0;
+        width: 310px;
+        height: 280px;
+      }
+    }
   }
 }

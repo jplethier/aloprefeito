@@ -5,15 +5,14 @@
     = @complaint.description
 
 .right
+  - if @map
+    = gmaps(:map_options => { :auto_zoom => false, :draggable => false, "disableDefaultUI" => true, "disableDoubleClickZoom" => true, :zoom => 13 }, :markers  => { :data => @json })
+  - else
+    = gmaps(:map_options => { :center_latitude => -13, :center_longitude => -48, :zoom => 4, :draggable => false, "disableDefaultUI" => true, "disableDoubleClickZoom" => true }, :markers => {:data => @json})
+
   - if @fonts && !@fonts.empty?
     .title= t('complaiment.links')
     %ul.urls
       - @fonts.each do |font|
         - if font.url
           %li= link_to font.url, font.url, :target => '_blank'
-.mapa-fixo
-  - if @map
-    = gmaps(:map_options => { :auto_zoom => false, :draggable => false, "disableDefaultUI" => true, "disableDoubleClickZoom" => true, :zoom => 13 }, :markers  => { :data => @json })
-  - else
-    = gmaps(:map_options => { :center_latitude => -13, :center_longitude => -48, :zoom => 4, :draggable => false, "disableDefaultUI" => true, "disableDoubleClickZoom" => true }, :markers => {:data => @json})
-
