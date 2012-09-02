@@ -6,6 +6,7 @@ class Ability
     can :read, User
     can [:edit, :update], User, :id => user.id
     can :read, Complaint
+    can :new, Complaint
 
     #permissoes usuario_logado
     unless user.new_record?

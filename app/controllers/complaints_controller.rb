@@ -1,5 +1,5 @@
 class ComplaintsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show, :tags]
+  before_filter :authenticate_user!, :except => [:index, :show, :tags, :new]
   
   def tags 
     query = params[:q]
