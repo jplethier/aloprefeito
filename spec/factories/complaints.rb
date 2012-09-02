@@ -6,8 +6,16 @@ FactoryGirl.define do
     description 'Description'
     resolved false
     anonymous false
-    factory :complaint_with_user do
-      user { FactoryGirl.create(:user) }
+    user { FactoryGirl.build(:user) }
+    after(:build) do |complaint|
+      if complaint.maps.empty?
+        FactoryGirl.build(:gmaps_attachment, :complaint => complaint)
+      end
     end
+
+    #factory :complaint_with_user do
+    #  anonymous false
+    #
+    #end
   end
 end

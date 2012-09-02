@@ -16,10 +16,6 @@ class ComplaintsController < ApplicationController
       format.json{ render :json => @tags.map(&:attributes) }
     end
   end
-  
-  def index
-    @complaints = Complaint.all
-  end
 
   def show
     @complaint = Complaint.find(params[:id])
@@ -31,7 +27,6 @@ class ComplaintsController < ApplicationController
 
     @json = @complaint.maps.to_gmaps4rails
     @comment = @complaint.comments.build
-
   end
 
   def new

@@ -26,8 +26,8 @@
       %p Navegue no mapa abaixo e clique na posição desejada
       =gmaps({ "map_options" => { "libraries" => ["places"], :center_latitude => -22, :center_longitude => -44, :zoom => 6 } })
       = f.fields_for :maps do |map|
-        = map.hidden_field :latitude, :id => "latitude_field"
-        = map.hidden_field :longitude, :id => "longitude_field"
+        = map.hidden_field :latitude, {:id => "latitude_field", :value => "-22"}
+        = map.hidden_field :longitude, {:id => "longitude_field", :value => "-44"}
         = map.hidden_field :attachment_type, :value => Attachment::TYPES[:map]
         .control-group
           = map.label :city, t('complainment.map.city')

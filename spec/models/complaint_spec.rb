@@ -68,12 +68,12 @@ describe Complaint do
       end
       context "when complaint is anonymous" do
         it "should set user_id to nil" do
-          complaint = FactoryGirl.build(:complaint_with_user, :anonymous => true)
+          complaint = FactoryGirl.build(:complaint, :anonymous => true)
           complaint.save
           complaint.reload.user_id.should be_nil
         end
         it "should not set user_id to nil" do
-          complaint = FactoryGirl.build(:complaint_with_user, :anonymous => false)
+          complaint = FactoryGirl.build(:complaint, :anonymous => false)
           complaint.save
           complaint.user_id.should_not be_nil
         end

@@ -23,10 +23,10 @@
       = form_for [@complaint, @comment] do |f|
         = f.text_area :comment, :rows => 3, :cols => 240, :class => "caixa_comentario"
         %br
-        = f.hidden_field :user_id, :value => current_user.id
+        = f.hidden_field :user_id, :value => current_user.try(:id)
         = f.hidden_field :commentable_id, :value => @complaint.id
         = f.submit t('complainment.comment_confirm'), :class => "btn btn-primary", :style => 'margin-left: 10px;'
-        
+
     .clear
     .title#complaint
       = t('complainment.comments')
@@ -38,7 +38,7 @@
       
 .right
   - if @map
-    = gmaps(:map_options => { :auto_zoom => false, :draggable => false, "disableDefaultUI" => true, "disableDoubleClickZoom" => true, :zoom => 13 }, :markers  => { :data => @json })
+    = gmaps(:map_options => { :raw => "{scrollwheel: false}", :auto_zoom => false, "scaleControl" => false, :draggable => false, "disableDoubleClickZoom" => true, :zoom => 13, :maxZoom => 18, :minZoom => 8 }, :markers  => { :data => @json })
   - else
     = gmaps(:map_options => { :center_latitude => -13, :center_longitude => -48, :zoom => 4, :draggable => false, "disableDefaultUI" => true, "disableDoubleClickZoom" => true }, :markers => {:data => @json})
 

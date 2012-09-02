@@ -11,6 +11,8 @@ describe "User" do
 
       it { should be_able_to(:read, FactoryGirl.create(:user)) }
       it { should_not be_able_to(:edit, FactoryGirl.create(:user))}
+      it { should_not be_able_to(:create, Complaint) }
+      it { should_not be_able_to(:new, Complaint) }
 
     end
 
@@ -21,8 +23,7 @@ describe "User" do
       it { should be_able_to(:edit, user)}
 
       it { should be_able_to(:create, Complaint)}
-      it { should be_able_to(:edit, FactoryGirl.create(:complaint, :user => user))}
-      it { should_not be_able_to(:edit, FactoryGirl.create(:complaint_with_user))}
+      it { should be_able_to(:create, Comment)}
 
     end
 
