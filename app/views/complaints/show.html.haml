@@ -5,6 +5,17 @@
   .description
     = @complaint.description
 
+  #images
+    .title#complaint
+      = t('complainment.images')
+    - if @pictures && !@pictures.empty?
+      .ul.images
+        - @pictures.each do |picture|
+          %li Imagem
+    - else
+      .description= t('complainment.no_images')
+
+      
 .right
   - if @map
     = gmaps(:map_options => { :auto_zoom => false, :draggable => false, "disableDefaultUI" => true, "disableDoubleClickZoom" => true, :zoom => 13 }, :markers  => { :data => @json })
