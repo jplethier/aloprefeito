@@ -1,55 +1,63 @@
 = form_for @complaint, :class => 'form-horizontal' do |f|
-  
-  .left
-    %h1= t('complainment.new')
-    .control-group
-      = f.label :title
-      .controls
-        = f.text_field :title
-    .control-group
-      = f.label :description
-      .controls
-        / = f.text_area :description
-        = cktext_area :complaint, :description, :toolbar => 'Basic'
-    .control-group
-      = f.label :tags
-      .controls
-        = f.text_field :tag_list, :id => "complaint_tags", "data-pre" => @complaint.tags.map(&:attributes).to_json
-        
-    = f.submit t('buttons.complainment.new'), :class => 'btn'
 
-  .left
+  .span12
+    .span5
+      %h1= t('complainment.new')
+      .control-group
+        = f.label :title
+        .controls
+          = f.text_field :title
+      .control-group
+        = f.label :description
+        .controls
+          / = f.text_area :description
+          = cktext_area :complaint, :description, :toolbar => 'Basic'
+      .control-group
+        = f.label :tags
+        .controls
+          = f.text_field :tag_list, :id => "complaint_tags", "data-pre" => @complaint.tags.map(&:attributes).to_json
+
+    .span6
+      %h1= t('complainment.maps')
+      = text_field_tag :autocomplete_location, nil, {:id => :searchTextField}
+      #map_canvas
+      -#= gmaps({ "map_options" => { "libraries" => ["places"], :center_latitude => -18, :center_longitude => -52, :zoom => 3 } })
+      = f.fields_for :maps do |map|
+        = font.hidden_field :attachment_type, :value => 3
+        .control-group
+          = font.label :city, t('complainment.maps.city')
+          .controls
+            = font.text_field :city
+
+  .span12
     %h1.attachments= t('complainment.attachments')
-    %span= t('complainment.optionals')
-    %p= t('complainment.urls')
-    = f.fields_for :fonts do |font|
-      = font.hidden_field :attachment_type, :value => 1
-      .control-group
-        = font.label :url, t('complainment.fonts.url')
-        .controls
-          = font.text_field :url
+    %p= t('complainment.optionals')
+    .span3
+      %p= t('complainment.urls')
+      = f.fields_for :fonts do |font|
+        = font.hidden_field :attachment_type, :value => 1
+        .control-group
+          = font.label :url, t('complainment.fonts.url')
+          .controls
+            = font.text_field :url
 
-    %p= t('complainment.video')
-    = f.fields_for :embeds do |video|
-      = video.hidden_field :attachment_type, :value => 2
-      .control-group
-        = video.label :url, t('complainment.fonts.url')
-        .controls
-          = video.text_field :url
+    .span3
+      %p= t('complainment.pictures')
+      = f.fields_for :pictures do |pic|
+        = pic.hidden_field :attachment_type, :value => 4
+        .control-group
+          = pic.label :attachment, t('complainment.picture.attachment')
+          .controls
+            = pic.file_field :attachment
 
-    %p= t('complainment.pictures')
-    = f.fields_for :pictures do |pic|
-      = pic.hidden_field :attachment_type, :value => 4
-      .control-group
-        = pic.label :attachment, t('complainment.picture.attachment')
-        .controls
-          = pic.file_field :attachment
 
-  .left
-    %h1= t('complainment.maps')
-    = f.fields_for :maps do |map|
-      = font.hidden_field :attachment_type, :value => 3
-      .control-group
-        = font.label :city, t('complainment.maps.city')
-        .controls
-          = font.text_field :city
+    .span3
+      %p= t('complainment.video')
+      = f.fields_for :embeds do |video|
+        = video.hidden_field :attachment_type, :value => 2
+        .control-group
+          = video.label :url, t('complainment.fonts.url')
+          .controls
+            = video.text_field :url
+    .span12
+      = f.submit t('buttons.complainment.new'), :class => 'btn'

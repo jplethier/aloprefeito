@@ -130,3 +130,20 @@ div.token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-faceb
     background-color: #3b5998;
     color: #fff;
 }
+
+#autocomplete_location {
+  width: 350px;
+}
+
+.map_container {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  width: 350px;
+
+  #map {
+    margin: 0;
+    width: 340px;
+    height: 280px;
+  }
+}
