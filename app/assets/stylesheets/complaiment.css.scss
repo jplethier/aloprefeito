@@ -1,4 +1,4 @@
-#complaints {
+  #complaints {
   margin: 30px auto;
 
   .left {
@@ -28,6 +28,13 @@
       padding-top: 20px;
       margin-top: 20px;
     }
+
+    #comments {
+      .comment {
+      margin-top: 20px;
+      }
+    }
+
   }
 
   .right {
