@@ -2,9 +2,18 @@ class ComplaintsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :new, :create, :tags]
   
   def tags 
-    @tags = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{params[:q]}%") 
+    query = params[:q]
+    if query[-1,1] == " "
+      query = query.gsub(" ", "")
+      ActsAsTaggableOn::Tag.find_or_create_by_name(query)
+    end
+
+    #Do the search in memory for better performance
+
+    @tags = ActsAsTaggableOn::Tag.all
+    @tags = @tags.select { |v| v.name =~ /#{query}/i }
     respond_to do |format|
-      format.json { render :json => @tags.map{|t| {:id => t.name, :name => t.name }}}
+      format.json{ render :json => @tags.map(&:attributes) }
     end
   end
   

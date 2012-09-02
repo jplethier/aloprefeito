@@ -12,7 +12,7 @@
 $(function() {
   $("#complaint_tags").tokenInput("/complaints/tags.json"), {
     preventDuplicates: true,
-    noResultsText:     "No results, needs to be created.",
+		noResultsText: 'No result, hit space to create a new tag',
     animateDropdown:   false
   };
 });
