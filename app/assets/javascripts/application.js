@@ -8,3 +8,12 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(function() {
+  $("#complaint_tags").tokenInput("/complaints/tags.json"), {
+    preventDuplicates: true,
+    noResultsText:     "No results, needs to be created.",
+    animateDropdown:   false
+  };
+});
+

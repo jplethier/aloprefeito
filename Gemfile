@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
 
+gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'acts_as_commentable'
 gem 'bourbon'
 gem 'fb_graph'

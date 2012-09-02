@@ -1,4 +1,5 @@
 BondeDaUff::Application.routes.draw do
+  get "complaints/tags" => "complaints#tags", :as => :tags
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"} do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'

@@ -25,6 +25,8 @@ class Complaint < ActiveRecord::Base
 
   accepts_nested_attributes_for :attachments
 
+  acts_as_taggable
+  
   def auto_add_interest_to_user
     self.interests.build(:user => self.user)
     self.user = nil if self.anonymous?

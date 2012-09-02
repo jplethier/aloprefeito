@@ -5,3 +5,5 @@
   = fields_for :fonts do |font|
     = font.text_field :url
   = f.submit I18n.t('buttons.complainment.new')
+  = f.text_field :tag_list, :id => "complaint_tags", "data-pre" => @complaint.tags.map(&:attributes).to_json
+  
