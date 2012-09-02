@@ -11,7 +11,9 @@
     - if @pictures && !@pictures.empty?
       .ul.images
         - @pictures.each do |picture|
-          %li Imagem
+          - if picture.attachment
+            %li
+              %img{ :src => picture.attachment }
     - else
       .description= t('complainment.no_images')
 

@@ -3,12 +3,13 @@
     .complaint
       %h1= t('messages.login_welcome')
       = link_to t('buttons.new_complaint'), new_complaint_path, :class => 'btn btn-large btn-primary', :id => 'complaint_btn'
-    = link_to t('buttons.my_complaints')
+    #search_filters
+      / TODO: incluir filtros para buscar no mapa por: 'Todas', 'Minhas denuncias', 'Denuncias que sigo'
   - else
     .complaint
       %h1= t('messages.signout_welcome').html_safe
       = link_to 'Login with facebook', user_omniauth_authorize_path(:facebook), :id => 'facebook_login'
-.row
+
 #map
   = gmaps(:map_options => { :center_latitude => -13, :center_longitude => -48, :zoom => 4 },
            :markers  => { :data => @json, :options => {"list_container" => "markers_list"} })

@@ -1,6 +1,6 @@
 class Attachment < ActiveRecord::Base
   attr_protected :id
-  has_attached_file :attachment
+  has_attached_file :attachment, :path => ':rails_root/public/system/attachments/:id_partition/pictures/:filename', :url => '/system/attachments/:id_partition/pictures/:filename'
 
   TYPES = {:font => 1, :embed => 2, :map => 3, :picture => 4}
 
