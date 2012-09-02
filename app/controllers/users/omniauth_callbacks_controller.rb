@@ -7,13 +7,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:success] = I18n.t "devise.omniauth_callbacks.login", :kind => "Facebook"
     else
       data = request.env["omniauth.auth"]
-      user = User.apply_omniauth(data)
-      if user.save
+      @user = User.apply_omniauth(data)
+      if @user.save
         flash[:success] = I18n.t "devise.omniauth_callbacks.create"
       else
         flash[:error] = I18n.t "devise.omniauth_callbacks.errors"
       end
-      user.reload
+      @user.reload
     end
     sign_in_and_redirect @user
   end

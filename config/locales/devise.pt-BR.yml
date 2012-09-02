@@ -47,7 +47,7 @@ pt-BR:
     omniauth_callbacks:
       create: 'Cadastro via facebook realizado com sucesso.'
       errors: 'Não foi possível realizar o cadastro via facebook'
-      success: 'Login via %{kind} realizado com sucesso.'
+      login: 'Login via %{kind} realizado com sucesso.'
       failure: 'Não foi possível realizar o login via %{kind} because "%{reason}".'
     mailer:
       confirmation_instructions:
