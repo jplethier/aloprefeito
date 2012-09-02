@@ -7,7 +7,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require ckeditor/init
 //= require_tree .
+
+$(document).ready(function() {
+  setTimeout(hideFlashes, 2500);
+});
 
 $(function() {
   $("#complaint_tags").tokenInput("/complaints/tags.json", 
@@ -19,3 +24,7 @@ $(function() {
     theme: 'facebook'
   });
 });
+
+var hideFlashes = function() {
+  $('#flashes').fadeOut(1500);
+}
