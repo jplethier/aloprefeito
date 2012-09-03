@@ -3,10 +3,37 @@ body {
     @include linear-gradient(#404040, #7F7F7F);
     width: 100%;
     height: 80px;
+    color: #ececec;
 
     .content {
       width: 960px;
       margin: 0 auto;
+
+      .developed_by {
+        float: right;
+
+        p {
+          float: right;
+          width: 190px;
+          margin-bottom: 0;
+        }
+
+        ul {
+          list-style: none;
+          margin: 5px 0;
+
+          li {
+            float: left;
+            margin: 0 5px;
+            font-size: 11pt;
+
+            a {
+              text-decoration: none;
+              color: #ececec;
+            }
+          }
+        }
+      }
     }
   }
 }

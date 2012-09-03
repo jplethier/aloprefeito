@@ -1,25 +1,21 @@
 class ComplaintsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show, :tags, :new]
+  before_filter :authenticate_user!, :except => [:index, :show, :new]
   
-  def tags 
-    query = params[:q]
-    if query[-1,1] == " "
-      query = query.gsub(" ", "")
-      ActsAsTaggableOn::Tag.find_or_create_by_name(query)
-    end
-
-    #Do the search in memory for better performance
-
-    @tags = ActsAsTaggableOn::Tag.all
-    @tags = @tags.select { |v| v.name =~ /#{query}/i }
-    respond_to do |format|
-      format.json{ render :json => @tags.map(&:attributes) }
-    end
-  end
-  
-  def index
-    @complaints = Complaint.all
-  end
+  #def tags
+  #  query = params[:q]
+  #  if query[-1,1] == " "
+  #    query = query.gsub(" ", "")
+  #    ActsAsTaggableOn::Tag.find_or_create_by_name(query)
+  #  end
+  #
+  #  #Do the search in memory for better performance
+  #
+  #  @tags = ActsAsTaggableOn::Tag.acll
+  #  @tags = @tags.select { |v| v.name =~ /#{query}/i }
+  #  respond_to do |format|
+  #    format.json{ render :json => @tags.map(&:attributes) }
+  #  end
+  #end
 
   def show
     @complaint = Complaint.find(params[:id])
@@ -31,7 +27,6 @@ class ComplaintsController < ApplicationController
 
     @json = @complaint.maps.to_gmaps4rails
     @comment = @complaint.comments.build
-
   end
 
   def new

@@ -15,7 +15,7 @@ describe "New Complaint Page" do
 
   after { Warden.test_reset! }
 
-  it { should have_content('Cadastrar Reclamação') }
+  it { should have_content(I18n.t('complainment.new')) }
 
   context "Complaint without description" do
     before(:each) do
@@ -27,6 +27,7 @@ describe "New Complaint Page" do
 
   context "Fill in complaint with description" do
     before(:each) do
+      fill_in("complaint_title", :with => "Title")
       fill_in("complaint_description", :with => "Description")
       click_button(I18n.t('buttons.complainment.new'))
     end
@@ -40,15 +41,4 @@ describe "New Complaint Page" do
       end
     end
   end
-
-  #  describe 'creating a complaint' do
-  #    it 'successfully' do
-  #      count = Complaint.count
-  #      fill_in 'user_email', :with => 'user@ofertus.com.br'
-  #      click_on 'submit'
-  #      (Complaint.count - 1).should == count
-  #      should have_content('Denúncia cadastrada com sucesso.')
-  #      should have_content('Minhas denúncias')
-  #    end
-  #  end
 end

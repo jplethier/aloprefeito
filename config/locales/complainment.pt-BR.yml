@@ -2,6 +2,7 @@
 "pt-BR":
   complainment:
     attachments: 'Mais informações?'
+    comment_confirm: 'Confirmar'
     comments: "Comentários"
     fonts:
       url: 'Link'
@@ -22,3 +23,4 @@
     pictures: 'Imagens/Fotos'
     urls: 'Links relacionados'
     video: 'Vídeo relacionado'
+    submit: 'Salvar Denúncia'

@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :attachment do
     attachment_type { Attachment::TYPES[:url] }
     after(:build) do  |attachment|
-      attachment.complaint ||= FactoryGirl.create(:complaint)
+      attachment.complaint ||= FactoryGirl.build(:complaint)
     end
     factory :url_attachment do
       attachment_type { Attachment::TYPES[:font] }
