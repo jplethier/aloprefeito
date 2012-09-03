@@ -19,6 +19,7 @@ class Complaint < ActiveRecord::Base
   before_validation :three_fonts_only
 
   before_create :auto_add_interest_to_user
+  before_save :set_tag_list_correctly
 
   belongs_to :user
 
@@ -44,6 +45,16 @@ class Complaint < ActiveRecord::Base
     self.interests.build(:user => self.user)
     self.user = nil if self.anonymous?
     true
+  end
+
+  def set_tag_list_correctly
+    correctly_tag_list = []
+    self.tag_list.each do |tag|
+      if ActsAsTaggableOn::Tag.find_by_id(tag)
+        correctly_tag_list = ActsAsTaggableOn::Tag.find_by_id(tag.to_i).name
+      end
+    end
+    self.tag_list = correctly_tag_list
   end
 
   def at_least_one_map

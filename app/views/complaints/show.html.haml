@@ -4,6 +4,11 @@
     %span= " - #{(@complaint.user ? @complaint.user.first_name : t('complainment.no_user'))}"
   .description
     = @complaint.description.html_safe
+  .tags
+    .title Tags
+    %ul.tags_list
+      - @complaint.tags.each do |tag|
+        %li= tag.name
 
   #images
     .title#complaint
