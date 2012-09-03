@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.commentable = Complaint.find(params[:comment][:commentable_id])
     if @comment.save
-      if @comment.commentable.user_id && (@comment.commentable.user_id != current_user.id)@
+      if @comment.commentable.user_id && (@comment.commentable.user_id != current_user.id)
         UserMailer.new_comment(@comment.commentable.user).deliver
       end
       flash[:success] = I18n.t('messages.success_comment_save')
