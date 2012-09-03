@@ -16,6 +16,9 @@
       .logo
         %a.float_left.brand(href=root_path) AloPrefeito
         - if user_signed_in?
+          - if current_user.facebook_profile_picture
+            .user_pic
+              %img{ :src => current_user.facebook_profile_picture }
           .login_infos.float_right
             %p
               Olá,

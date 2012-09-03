@@ -23,6 +23,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def facebook_profile_picture(size = "normal")
+    begin
+      FbGraph::User.fetch(uid).picture(size)
+    rescue Exception
+      nil
+    end
+  end
+
   def self.apply_omniauth(data)
     user_info = data.info
     User.new(:email => user_info.email, :first_name => user_info.first_name, :last_name => user_info.last_name, :provider => "facebook", :uid => data.uid, :fb_token => data.credentials.token)
