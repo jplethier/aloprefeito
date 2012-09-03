@@ -44,7 +44,6 @@ class ComplaintsController < ApplicationController
     if @complaint.save
       if !@complaint.anonymous && @complaint.facebook_post && FbGraph::User.me(current_user.fb_token).permissions.include?(:status_update)
         me = FbGraph::User.me(current_user.fb_token)
-        binding.pry
         me.feed!( :message => current_user.first_name + " acabou de fazer uma denúncia no AloPrefeito!", :link => complaint_url(@complaint), :description => @complaint.description, :picture => 'http://www.aloprefeito.com/images/logo.png')
       end
       flash[:success] = I18n.t('messages.success_complaint_save')
