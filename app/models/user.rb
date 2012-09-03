@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def facebook_profile_picture(size = "normal")
+  def facebook_profile_picture(size = "small")
     begin
       FbGraph::User.fetch(uid).picture(size)
     rescue Exception
