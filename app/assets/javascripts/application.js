@@ -41,3 +41,4 @@ jQuery(function () {
 var hideFlashes = function () {
     jQuery('#flashes').fadeOut(1500);
 }
+
