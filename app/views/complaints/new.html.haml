@@ -4,8 +4,11 @@
     .span5
       %h1= t('complainment.new')
       %p
-        = f.check_box :anonymous, :checked => true, :style => 'float: left;'
+        = f.check_box :anonymous, :checked => true, :style => 'float: left;', :onclick => "jQuery('.facebook_post').toggle();;"
         = f.label :anonymous, :style => 'float: left; margin-left: 5px;'
+      %p.facebook_post{ :style => "display: none;"}
+        = f.check_box :facebook_post, :checked => true, :style => 'float: left; margin-left: 10px;'
+        = f.label :facebook_post, :style => 'float: left; margin-left: 5px;'
       .clear
       .control-group
         = f.label :title
@@ -16,6 +19,10 @@
         .controls
           / = f.text_area :description
           = cktext_area :complaint, :description, :toolbar => 'Basic'
+      .control-group
+        = f.label :tags
+        .controls
+          = f.text_field :tag_list, :id => "complaint_tags", "data-pre" => @complaint.tags.map(&:attributes).to_json
 
 
     .span6

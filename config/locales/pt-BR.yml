@@ -5,4 +5,5 @@
       complaint:
         anonymous: 'Denunciar como anônimo'
         description: 'Descrição'
+        facebook_post: 'Postar no facebook'
         title: "Título"

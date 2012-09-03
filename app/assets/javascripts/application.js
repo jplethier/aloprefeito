@@ -11,12 +11,12 @@
 //= require_tree .
 
 
-$(document).ready(function () {
+jQuery(document).ready(function () {
     setTimeout(hideFlashes, 2500);
 });
 
-$(function () {
-    $("#complaint_tags").tokenInput("/complaints/tags.json",
+jQuery(function () {
+    jQuery("#complaint_tags").tokenInput("/complaints/tags.json",
         {
             hintText:'Digite sua tag...',
             noResultsText:'Nenhuma tag encontrada, digite uma nova e aperte espaço.',
@@ -27,5 +27,5 @@ $(function () {
 });
 
 var hideFlashes = function () {
-    $('#flashes').fadeOut(1500);
+    jQuery('#flashes').fadeOut(1500);
 }

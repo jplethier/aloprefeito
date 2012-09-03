@@ -3,6 +3,7 @@ class Complaint < ActiveRecord::Base
   acts_as_commentable
 
   attr_protected :id
+  attr_accessor :facebook_post
 
   MAX_PICTURES = 3
 
