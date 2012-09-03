@@ -10,7 +10,7 @@ class ComplaintsController < ApplicationController
   #
   #  #Do the search in memory for better performance
   #
-  #  @tags = ActsAsTaggableOn::Tag.all
+  #  @tags = ActsAsTaggableOn::Tag.acll
   #  @tags = @tags.select { |v| v.name =~ /#{query}/i }
   #  respond_to do |format|
   #    format.json{ render :json => @tags.map(&:attributes) }
