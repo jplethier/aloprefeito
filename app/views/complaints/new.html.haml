@@ -16,10 +16,7 @@
         .controls
           / = f.text_area :description
           = cktext_area :complaint, :description, :toolbar => 'Basic'
-      .control-group
-        = f.label :tags
-        .controls
-          = f.text_field :tag_list, :id => "complaint_tags", "data-pre" => @complaint.tags.map(&:attributes).to_json
+
 
     .span6
       %h1= t('complainment.maps')
