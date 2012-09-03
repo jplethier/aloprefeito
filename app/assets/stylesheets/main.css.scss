@@ -19,6 +19,12 @@ body {
   margin-top: 10px;  
 }
 
+#markers_list_searchable {
+  ul {
+    list-style: none;
+    margin-left: 600px;
+  }
+}
 a.brand {
   background: image-url('logo.png');
   height: 103px;
