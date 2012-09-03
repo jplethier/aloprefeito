@@ -10,9 +10,21 @@
 //= require ckeditor/init
 //= require_tree .
 
-
 jQuery(document).ready(function () {
     setTimeout(hideFlashes, 2500);
+
+  Gmaps.map.callback = function() {
+    $("#markers_list li a").addClass("link");
+    var list = $("#markers_list li");
+    $("#markers_list li").remove();
+    list.each(function(index, domEl){$("#markers_list_searchable ul").append(domEl)});
+
+    var options = {
+      valueNames: ["link"]
+    };
+
+    var markersList = new List('markers_list_searchable', options);
+  }
 });
 
 jQuery(function () {

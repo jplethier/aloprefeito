@@ -12,6 +12,10 @@
 
 #map
   = gmaps(:map_options => { :center_latitude => -13, :center_longitude => -48, :zoom => 4 },
-           :markers  => { :data => @json, :options => {"list_container" => "markers_list"} })
+           :markers  => { :data => @json, :options => {"list_container" => "list"} })
 #markers_list
   %p= t('home.complaints')
+  %ul#list
+#markers_list_searchable
+  %input.search{:placeholder => "Filtre denuncias"}
+  %ul.list
