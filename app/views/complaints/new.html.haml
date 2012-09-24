@@ -71,40 +71,42 @@
     .span12
       = f.submit t('buttons.complainment.new'), :class => 'btn'
 
-      =content_for :scripts do
-        %script{:type => "text/javascript", :charset => "utf-8"}
-          var markersArray = [];
-          Gmaps.map.callback = function() {
-          google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
-          clearOverlays();
-          placeMarker(event.latLng);
-          updateFormLocation(event.latLng);
-          });
-          };
-          function updateFormLocation(latLng) {
-          document.getElementById("latitude_field").value = (latLng.lat());
-          document.getElementById("longitude_field").value = (latLng.lng());
-          }
-          function placeMarker(latLng) {
-          var marker = new google.maps.Marker({
-          position: latLng,
-          map: Gmaps.map.serviceObject,
-          draggable: true
-          });
-          markersArray.push(marker);
-          var infowindow = new google.maps.InfoWindow({
-          content: '<div class="popup"><h2>Local da denuncia</h2><p>Você pode me arrastar E ajustar o zoom!</p>'
-          });
-          infowindow.open(Gmaps.map.serviceObject,marker);
-          google.maps.event.addListener(marker, 'dragend', function() {
-          updateFormLocation(this.getPosition());
-          });
-          }
-          function clearOverlays() {
-          if (markersArray) {
-          for (var i = 0; i < markersArray.length; i++ ) {
-          markersArray[i].setMap(null);
-          }
-          }
-          markersArray.length = 0;
-          }
+=content_for :scripts do
+  %script{:type => "text/javascript", :charset => "utf-8"}
+    jQuery(document).ready(function () {
+    var markersArray = [];
+    Gmaps.map.callback = function() {
+    google.maps.event.addListener(Gmaps.map.serviceObject, 'click', function(event) {
+    clearOverlays();
+    placeMarker(event.latLng);
+    updateFormLocation(event.latLng);
+    });
+    };
+    function updateFormLocation(latLng) {
+    document.getElementById("latitude_field").value = (latLng.lat());
+    document.getElementById("longitude_field").value = (latLng.lng());
+    }
+    function placeMarker(latLng) {
+    var marker = new google.maps.Marker({
+    position: latLng,
+    map: Gmaps.map.serviceObject,
+    draggable: true
+    });
+    markersArray.push(marker);
+    var infowindow = new google.maps.InfoWindow({
+    content: '<div class="popup"><h2>Local da denuncia</h2><p>Você pode me arrastar E ajustar o zoom!</p>'
+    });
+    infowindow.open(Gmaps.map.serviceObject,marker);
+    google.maps.event.addListener(marker, 'dragend', function() {
+    updateFormLocation(this.getPosition());
+    });
+    }
+    function clearOverlays() {
+    if (markersArray) {
+    for (var i = 0; i < markersArray.length; i++ ) {
+    markersArray[i].setMap(null);
+    }
+    }
+    markersArray.length = 0;
+    }
+    })
